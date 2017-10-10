@@ -1,7 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
-//refactored to use function over class since this SelectLanguage component only has a render method and no state. Remove 'this' since it's undefined within this component's scope.
+//refactored to use function over class since this SelectLanguage class component only has a render method and no state. Remove 'this' since it's undefined within this stateless functional component's scope.
 //Stateless Functional Component:
 function SelectLanguage(props) {
   var languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
