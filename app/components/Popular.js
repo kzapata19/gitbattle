@@ -1,27 +1,27 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
-class SelectLanguage extends React.Component {
+//refactored to use function over class since this SelectLanguage component only has a render method and no state. Remove 'this' since it's undefined within this component's scope.
+//Stateless Functional Component:
+function SelectLanguage(props) {
+  var languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
 
-  render () {
-    var languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
-
-    return (
+  return (
       <ul className='languages'>
         {languages.map(function (lang) {
           return (
             <li
-              style={lang === this.props.selectedLanguage ? {color: '#d0021b'} : null}
-              onClick={this.props.onSelect.bind(null, lang)}
+              style={lang === props.selectedLanguage ? {color: '#d0021b'} : null}
+              onClick={props.onSelect.bind(null, lang)}
               key={lang}>
               {lang}
             </li>
           )
-        }, this)}
+        })}
       </ul>
     )
-  }
 }
+
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired
