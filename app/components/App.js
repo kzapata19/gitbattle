@@ -3,6 +3,7 @@ var Popular = require ('./Popular');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
+var Nav = require('./Nav');
 //state
 //lifecycle event
 //UI
@@ -19,7 +20,8 @@ class App extends React.Component {
     return (
       <Router>
         <div className='container'>
-          <Route path='/popular' component={Popular}>
+          <Nav />
+          <Route path='/popular' component={Popular} />
         </div>
       </Router>
     );
