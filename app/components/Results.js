@@ -4,6 +4,7 @@ var queryString = require('query-string');
 var api = require('../utils/api');
 var Link = require('react-router-dom').Link;
 var PlayerPreview = require('./PlayerPreview');
+var Loading = require('./Loading');
 
 //stateless functional component
 function Profile(props) {
@@ -69,7 +70,8 @@ class Results extends React.Component {
        if(results === null) {
         this.setState(function() {
           return {
-            error: "Looks like there was an error. Check that both users exist on GitHub."
+            error: "Looks like there was an error. Check that both users exist on GitHub.",
+            loading: false,
           }
         })
        }
@@ -93,14 +95,14 @@ class Results extends React.Component {
     var loading = this.state.loading;
 
     if(loading === true) {
-        return <p>{"Loading..."}</p>
+        return <Loading />
       }
 
       if(error) {
         return (
           <div>
             <p>{error}</p>
-            <Link to='/batte'>Battle</Link>
+            <Link to='/battle'>Reset</Link>
           </div>
         )
       }
