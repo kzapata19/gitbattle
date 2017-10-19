@@ -73,7 +73,6 @@ class Battle extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleReset = this.handleReset.bind(this);
   }
 
   handleSubmit(id, username) {
@@ -116,7 +115,7 @@ class Battle extends React.Component {
               username={playerOneName}>
                 <button
                   className='reset'
-                  onClick={this.handleReset.bind(null, 'playerOne')}>
+                  onClick={this.handleReset.bind(this, 'playerOne')}>
                     Reset
                 </button>
             </PlayerPreview>}
@@ -133,7 +132,7 @@ class Battle extends React.Component {
               username={playerTwoName}>
                 <button
                   className='reset'
-                  onClick={this.handleReset.bind(null, 'playerTwo')}>
+                  onClick={this.handleReset.bind(this, 'playerTwo')}>
                     Reset
                 </button>
             </PlayerPreview>}
